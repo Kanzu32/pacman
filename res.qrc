@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/font.ttf</file>
+        <file>images/gif.gif</file>
+        <file>music/bonus.wav</file>
+        <file>music/close.wav</file>
+        <file>music/hit.wav</file>
+        <file>music/lose.wav</file>
+        <file>music/ok.wav</file>
+        <file>music/win.wav</file>
+        <file>images/sprites.png</file>
+    </qresource>
+</RCC>
