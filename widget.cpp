@@ -25,7 +25,7 @@ Widget::~Widget()
 }
 
 
-void Widget::on_pushButton_clicked()
+void Widget::on_playButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     Game* game = new Game();
@@ -34,14 +34,14 @@ void Widget::on_pushButton_clicked()
 }
 
 
-void Widget::on_pushButton_3_clicked()
+void Widget::on_exitButton_clicked()
 {
     QSound::play(":/music/close.wav");
     qApp->exit();
 }
 
 
-void Widget::on_pushButton_2_clicked()
+void Widget::on_settingsButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     Settings* settings = new Settings();
@@ -50,7 +50,7 @@ void Widget::on_pushButton_2_clicked()
 }
 
 
-void Widget::on_pushButton_4_clicked()
+void Widget::on_recordsButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     Records* records = new Records();
@@ -59,7 +59,7 @@ void Widget::on_pushButton_4_clicked()
 }
 
 
-void Widget::on_pushButton_5_clicked()
+void Widget::on_helpButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     Help* help = new Help();

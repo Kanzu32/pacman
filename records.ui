@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Records</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(44, 47, 51);</string>
@@ -101,7 +101,7 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="oneButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -130,7 +130,7 @@ QPushButton:hover:!pressed  {
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="twoButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -159,7 +159,7 @@ QPushButton:hover:!pressed  {
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="backButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -244,9 +244,9 @@ QHeaderView::section {
   </layout>
  </widget>
  <tabstops>
-  <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_2</tabstop>
-  <tabstop>pushButton_3</tabstop>
+  <tabstop>oneButton</tabstop>
+  <tabstop>twoButton</tabstop>
+  <tabstop>backButton</tabstop>
  </tabstops>
  <resources/>
  <connections/>

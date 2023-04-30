@@ -15,21 +15,21 @@ Help::~Help()
     delete ui;
 }
 
-void Help::on_pushButton_clicked()
+void Help::on_rusButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     textBrowser->setText(rusHtml);
 }
 
 
-void Help::on_pushButton_2_clicked()
+void Help::on_engButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     textBrowser->setText(engHtml);
 }
 
 
-void Help::on_pushButton_3_clicked()
+void Help::on_backButton_clicked()
 {
     QSound::play(":/music/close.wav");
     Widget* widget = new Widget();

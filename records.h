@@ -9,14 +9,14 @@
 #include <widget.h>
 #include <map>
 
-class Entry1 {
+class Entry1 { // одна запись в таблице для 1 игрока
 public:
-    QString map;
-    QString pl1name;
-    int difficulty;
-    int lives;
-    int pl1score;
-    float time;
+    QString map; // название карты
+    QString pl1name; // имя
+    int difficulty; // сложность
+    int lives; // кол-во жизней
+    int pl1score; // очки 1 игррока
+    float time; // время прохождения уровня
     Entry1(QStringList arr) {
         map = arr.at(0);
         difficulty = arr.at(1).toInt();
@@ -26,7 +26,7 @@ public:
         time = arr.at(5).toFloat();
     }
     Entry1 () {pl1score = -1;};
-    virtual void addTo(QTableWidget* table) {
+    virtual void addTo(QTableWidget* table) { // добавление в таблицу
         int count = table->rowCount();
         table->setRowCount(count+1);
         table->setItem(count, 0, new QTableWidgetItem(map));
@@ -56,10 +56,10 @@ public:
     }
 };
 
-class Entry2: public Entry1 {
+class Entry2: public Entry1 { // одна запись в таблице для 2 игроков
 public:
-    QString pl2name;
-    int pl2score;
+    QString pl2name; // имя 2 игрока
+    int pl2score; // очки 2 игрока
     Entry2 (QStringList arr) {
         map = arr.at(0);
         difficulty = arr.at(1).toInt();
@@ -73,7 +73,7 @@ public:
 
     Entry2 () {pl1score = -1;};
 
-    void addTo(QTableWidget* table) {
+    void addTo(QTableWidget* table) { // добавление в таблицу
         int count = table->rowCount();
         table->setRowCount(count+1);
         table->setItem(count, 0, new QTableWidgetItem(map));
@@ -111,28 +111,27 @@ namespace Ui {
 class Records;
 }
 
-class Records : public QWidget
+class Records : public QWidget // окно записей рекордов игроков
 {
     Q_OBJECT
 
 public:
     explicit Records(QWidget *parent = nullptr);
-    void fill1player();
-    void fill2players();
-    void load();
-    bool twoPlayersMode = false;
-    std::map<QString,Entry1> map1pl;
-    std::map<QString,Entry2> map2pl;
+    void fill1player(); // заполнение таблицы для 1 игрока
+    void fill2players(); // заполнение таблицы для 2 игроков
+    void load(); // загрузка из внешнего файла
+    std::map<QString,Entry1> map1pl; // map для хранения результатов 1 игрока
+    std::map<QString,Entry2> map2pl; // map для хранения результатов 2 игроков
     QStandardItemModel* model;
     QTableWidget* table;
     ~Records();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_oneButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_twoButton_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_backButton_clicked();
 
 private:
     Ui::Records *ui;

@@ -80,7 +80,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="exitButton">
    <property name="geometry">
     <rect>
      <x>250</x>
@@ -103,7 +103,7 @@ QPushButton:hover:!pressed  {
     <string>EXIT</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="continueButton">
    <property name="geometry">
     <rect>
      <x>20</x>

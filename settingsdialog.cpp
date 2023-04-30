@@ -30,7 +30,7 @@ void SettingsDialog::on_radioButton_2_clicked()
 }
 
 
-void SettingsDialog::on_pushButton_2_clicked()
+void SettingsDialog::on_exitButton_clicked()
 {
     this->reject();
 }
@@ -51,7 +51,7 @@ void SettingsDialog::on_radioButton_7_clicked()
 }
 
 
-void SettingsDialog::on_pushButton_clicked()
+void SettingsDialog::on_continueButton_clicked()
 {
     pl2name = ui->lineEdit_2->text();
     pl1name = ui->lineEdit->text();

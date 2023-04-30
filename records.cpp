@@ -50,7 +50,12 @@ void Records::load() {
         QStringList splited = data.split('|');
         if (splited.size() < 8) {continue;};
         Entry2 entry2 = Entry2(splited);
-        map2pl[entry2.pl1name + entry2.pl2name] = entry2;
+        auto id = entry2.pl1name + entry2.pl2name + entry2.difficulty + entry2.lives + entry2.map;
+        int count = map1pl.count(id);
+        int score = entry2.pl2score + entry2.pl1score;
+        if (count == 0 || (count > 0 && (map2pl.at(id).pl1score + map2pl.at(id).pl2score)*(1/map2pl.at(id).time) < score*(1/entry2.time))) {
+            map2pl[id] = entry2;
+        }
     }
     file2.close();
     } catch (std::exception const&e) {
@@ -104,21 +109,21 @@ void Records::fill2players() {
     table->setSortingEnabled(true);
 }
 
-void Records::on_pushButton_clicked()
+void Records::on_oneButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     fill1player();
 }
 
 
-void Records::on_pushButton_2_clicked()
+void Records::on_twoButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     fill2players();
 }
 
 
-void Records::on_pushButton_3_clicked()
+void Records::on_backButton_clicked()
 {
     QSound::play(":/music/close.wav");
     Widget* widget = new Widget();

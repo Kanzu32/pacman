@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Game</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(44, 47, 51);</string>
@@ -257,7 +257,7 @@
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="againButton">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -292,7 +292,7 @@ QPushButton:hover:!pressed  {
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_3">
+             <widget class="QPushButton" name="recordsButton">
               <property name="minimumSize">
                <size>
                 <width>350</width>
@@ -321,7 +321,7 @@ QPushButton:hover:!pressed  {
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_2">
+             <widget class="QPushButton" name="menuButton">
               <property name="minimumSize">
                <size>
                 <width>350</width>

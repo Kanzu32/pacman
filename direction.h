@@ -1,10 +1,10 @@
 #ifndef DIRECTION_H
 #define DIRECTION_H
 
-class Direction {
+class Direction { // класс показывающий направление
 public:
-    short horizontal;
-    short vertical;
+    short horizontal; // горизонтальное напр.
+    short vertical; // вертикальное напр.
     Direction(int h, int v) {
         this->horizontal = h;
         this->vertical = v;

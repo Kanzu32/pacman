@@ -148,7 +148,7 @@ void Settings::on_pushButton_8_clicked()
 }
 
 
-void Settings::on_pushButton_clicked()
+void Settings::on_backButton_clicked()
 {
     QSound::play(":/music/close.wav");
     Widget* widget = new Widget();
@@ -157,7 +157,7 @@ void Settings::on_pushButton_clicked()
 }
 
 
-void Settings::on_pushButton_2_clicked()
+void Settings::on_saveButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     QString Path = QCoreApplication::applicationDirPath();

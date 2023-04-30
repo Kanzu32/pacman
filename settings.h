@@ -12,14 +12,14 @@ namespace Ui {
 class Settings;
 }
 
-class Settings : public QWidget
+class Settings : public QWidget // окно настроек
 {
     Q_OBJECT
 
 public:
     explicit Settings(QWidget *parent = nullptr);
-    bool input = false;
-    QString mode = "";
+    bool input = false; // активен ли ввод
+    QString mode = ""; // какая кнопка настраивается в данный момент
     QLabel *p1left;
     QLabel *p1down;
     QLabel *p1right;
@@ -30,7 +30,7 @@ public:
     QLabel *p2up;
     QSlider *slider;
     QLabel *sliderView;
-    int p1leftkey;
+    int p1leftkey; // переменные для заданных клавиш
     int p1downkey;
     int p1rightkey;
     int p1upkey;
@@ -38,7 +38,7 @@ public:
     int p2downkey;
     int p2rightkey;
     int p2upkey;
-    QSettings* config;
+    QSettings* config; // для записи/чтения данных внешнего .ini файла
     ~Settings();
 
 private slots:
@@ -58,9 +58,9 @@ private slots:
 
     void on_pushButton_8_clicked();
 
-    void on_pushButton_clicked();
+    void on_saveButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_backButton_clicked();
 
     void on_horizontalSlider_valueChanged(int value);
 

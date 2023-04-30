@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>686</height>
+    <height>740</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>Menu</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(44, 47, 51);</string>
@@ -86,7 +86,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="playButton">
            <property name="minimumSize">
             <size>
              <width>300</width>
@@ -115,7 +115,7 @@ QPushButton:hover:!pressed  {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_4">
+          <widget class="QPushButton" name="recordsButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -150,7 +150,7 @@ QPushButton:hover:!pressed  {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="settingsButton">
            <property name="minimumSize">
             <size>
              <width>300</width>
@@ -179,7 +179,7 @@ QPushButton:hover:!pressed  {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_5">
+          <widget class="QPushButton" name="helpButton">
            <property name="minimumSize">
             <size>
              <width>300</width>
@@ -208,7 +208,7 @@ QPushButton:hover:!pressed  {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="exitButton">
            <property name="minimumSize">
             <size>
              <width>300</width>

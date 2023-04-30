@@ -4,18 +4,18 @@
 #include <direction.h>
 #include <cstdlib>
 
-class Movable
+class Movable // класс для движущегося объекта
 {
 protected:
-    int x;
-    int y;
-    int memAnim;
-    Direction direction;
+    int x; // x координата
+    int y; // y координата
+    int memAnim; // сохранение анимации
+    Direction direction; // направление движения
 
 public:
-    float speed;
-    float movePhase;
-    void move(int h, int w) {
+    float speed; // скорость
+    float movePhase; // степень сдвига
+    void move(int h, int w) { // движение
         this->x += direction.horizontal;
         this->y += direction.vertical;
 
@@ -72,14 +72,14 @@ public:
     };
 };
 
-class Player: public Movable {
+class Player: public Movable { // игрок
 private:
-    Direction memoryDirection;
-    int spawnX;
+    Direction memoryDirection; // запоминание направления движения
+    int spawnX; // изначальные координаты появления иргока
     int spawnY;
 public:
-    int lives;
-    bool targetable;
+    int lives; // жизни
+    bool targetable; // может ли враг навредить игроку
     void setMDir(int h, int v) {
         this->memoryDirection.horizontal = h;
         this->memoryDirection.vertical = v;
@@ -90,7 +90,7 @@ public:
     int getMH() {return this->memoryDirection.horizontal;};
     int getMV() {return this->memoryDirection.vertical;};
     Direction getMDir() {return this->memoryDirection;};
-    void toSpawn() {
+    void toSpawn() { // перемещение в изначальную позицию
         targetable = false;
         x = spawnX;
         y = spawnY;
@@ -135,9 +135,9 @@ public:
 
 };
 
-class Enemy: public Movable {
+class Enemy: public Movable { // враг
 public:
-    int color;
+    int color; // цвет
     Enemy() {
         this->color = rand()%4;
         this->movePhase = 0;
@@ -145,9 +145,10 @@ public:
         direction.horizontal = 0;
         direction.vertical = 0;
     };
-    Enemy(int x, int y): Enemy() {
+    Enemy(int x, int y, float spd): Enemy() {
         this->x = x;
         this->y = y;
+        this->speed = spd;
     };
 
 };

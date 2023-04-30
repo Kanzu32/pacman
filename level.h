@@ -8,21 +8,21 @@
 #include <queue>
 #include <QMessageBox>
 
-class LevelLoadException : public std::exception {
-    std::string msg;
+class LevelLoadException : public std::exception { // ошибка загрузки уровня
+    std::string msg; // сообщение
 public:
-    const char * what() const noexcept override {
+    const char * what() const noexcept override { // вывод сообщения
         return msg.c_str();
     }
     LevelLoadException(std::string msg) {this->msg = msg;};
 };
 
-struct navCell {
-    Direction dir;
-    int length;
+struct navCell { // ячейки которыми запоолняется таблица для поиска пути для врагов
+    Direction dir; // направление движения
+    int length; // расстояние до игрока
 };
 
-struct coord {
+struct coord { // координаты
     int x;
     int y;
     coord(int xx, int yy) {
@@ -31,34 +31,34 @@ struct coord {
     };
 };
 
-class Level
+class Level // уровень игры
 {
 private:
-    int h;
-    int w;
-    int** map;
+    int h; // высота
+    int w; // ширина
+    int** map; // карта
 
 public:
-    Player p1;
-    Player p2;
-    QString p1name;
+    Player p1; // 1 игрок
+    Player p2; // 2 игрок
+    QString p1name; // имена игроков
     QString p2name;
     QString mapName;
-    Enemy* enemies;
-    int difficulty;
-    int enemiesCount;
-    int coinsCount;
-    bool p2enabled;
-    int p1Score;
+    Enemy* enemies; // массив из врагов
+    int difficulty; // сложность
+    int enemiesCount; // кол-во врагов на уровне
+    int coinsCount; // кол-во собранных монеток
+    bool p2enabled; // активен ли 2 игрок
+    int p1Score; // очки игроков
     int p2Score;
-    int score;
-    int maxLives;
+    int score; // общие очки
+    int maxLives; // максимальное кол-во жизней
     int getWidth() {return w;};
     int getHeight() {return h;};
-    navCell** navMap;
+    navCell** navMap; // массив - таблица для поиска пути от врагов к игрокам
     int** getMap() {return map;};
     navCell** getNavMap() {return navMap;};
-    void recreateNavMap() {
+    void recreateNavMap() { // пересоздать/обновить таблицу навигации
         this->restoreNavMap();
         std::queue <coord> q;
         if (p1.targetable) {
@@ -99,16 +99,7 @@ public:
 
     }
 
-    void printNavMap() {
-        for (int i = 0; i < w; i++) {
-            for (int j = 0; j < h; j++) {
-                qDebug() << "(" <<navMap[i][j].dir.horizontal << " " << navMap[i][j].dir.vertical << ") ";
-            }
-            qDebug() << '\n';
-        }
-    }
-
-    void restoreNavMap() {
+    void restoreNavMap() { // очищение таблицы
         for (int i = 0; i < w; i++) {
             for (int j = 0; j < h; j++) {
                 if (navMap[i][j].length > -1) {
@@ -183,7 +174,7 @@ public:
                     this->map[i][j] = 0;
                     pl1created = true;
                 } else if (this->map[i][j] == 5 && x < enemiesCount) {
-                    this->enemies[x] = Enemy(i, j);
+                    this->enemies[x] = Enemy(i, j, 0.3+(0.2*difficulty));
                     this->map[i][j] = 0;
                     x++;
                 } else if (this->map[i][j] == 6 && p2enabled) {

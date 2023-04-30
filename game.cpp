@@ -389,7 +389,7 @@ void Game::keyPressEvent(QKeyEvent *event) {
 }
 
 
-void Game::on_pushButton_clicked() {
+void Game::on_againButton_clicked() {
     QSound::play(":/music/ok.wav");
     Game* game = new Game();
     game->show();
@@ -397,7 +397,7 @@ void Game::on_pushButton_clicked() {
 }
 
 
-void Game::on_pushButton_3_clicked()
+void Game::on_recordsButton_clicked()
 {
     QSound::play(":/music/ok.wav");
     Records* records = new Records();
@@ -406,7 +406,7 @@ void Game::on_pushButton_3_clicked()
 }
 
 
-void Game::on_pushButton_2_clicked()
+void Game::on_menuButton_clicked()
 {
     QSound::play(":/music/close.wav");
     Widget* widget = new Widget();

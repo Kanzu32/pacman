@@ -24,24 +24,24 @@ namespace Ui {
 class Game;
 }
 
-class Game : public QWidget
+class Game : public QWidget // окно игры
 {
     Q_OBJECT
 
 public:
     explicit Game(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *event) override;
-    void endGame();
-    QPixmap *spriteMap;
-    const int spriteSize = 16;
-    int frame = 0;
-    int animationSpeed = 25;
-    QTimer *animationTimer;
-    Level level;
-    bool error = false;
-    int lives;
-    int difficulty;
-    int p1leftkey;
+    void endGame(); // завершение игры
+    QPixmap *spriteMap; // графические ресурсы игры
+    const int spriteSize = 16; // размер 1 клетки
+    int frame = 0; // текущий кадр. необходим для анимации
+    int animationSpeed = 25; // скорость анимации
+    QTimer *animationTimer; // таймер анимации
+    Level level; // объект уровня
+    bool error = false; // выявлена ошибка
+    int lives; // кол-во жизней
+    int difficulty; // сложность
+    int p1leftkey; // клавиши управления
     int p1downkey;
     int p1rightkey;
     int p1upkey;
@@ -49,37 +49,37 @@ public:
     int p2downkey;
     int p2rightkey;
     int p2upkey;
-    int playerSpeed = 1;
-    int bonusTime = 3000;
-    int untargetTime = 2000;
-    int viewSize = 3;
-    int** map;
-    bool loaded = false;
-    QString pl1name;
+    int playerSpeed = 1; // скорость игрока
+    int bonusTime = 3000; // время ускорения при поднятии бонуса
+    int untargetTime = 2000; // время невосприимчивости к урону после его получаения
+    int viewSize = 3; // масштабирование камеры
+    int** map; // карта
+    bool loaded = false; // все ресурсы загружены и всё готово к игре
+    QString pl1name; // имена игроков
     QString pl2name;
-    QTimer *timer2;
+    QTimer *timer2; // таймеры для ускорения после бонуса
     QTimer *timer1;
-    QTimer *untargetTimer1;
+    QTimer *untargetTimer1; // таймеры невосприимчивости к урону
     QTimer *untargetTimer2;
-    QElapsedTimer gameTimer;
-    QVBoxLayout *layout;
-    QFrame* endScreen;
-    QLabel* title;
-    QLabel* stats;
+    QElapsedTimer gameTimer; // время прохождения уровня
+    //QVBoxLayout *layout;
+    QFrame* endScreen; // экран завершения игры
+    QLabel* title; // победа/порожение на экране завершения
+    QLabel* stats; // статистика на экране завершения
     ~Game();
 
 private slots:
     void nextFrame();
-    void endBonusPl1();
+    void endBonusPl1(); // окончиние бонусов
     void endBonusPl2();
-    void endUntargetPl1();
+    void endUntargetPl1(); // окончание невосприимчивости
     void endUntargetPl2();
 
-    void on_pushButton_clicked();
+    void on_recordsButton_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_againButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_menuButton_clicked();
 
 private:
     void keyPressEvent(QKeyEvent *event) override;
